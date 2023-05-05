@@ -14,9 +14,13 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '2.7'
-    - name: Build and Deploy
+    - name: Install Jekyll
+      run: gem install jekyll
+    - name: Build Site
+      run: jekyll build
+    - name: Deploy Site
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_site
-        jekyll: '4.0.0'
+        commit_message: "Deployed Site"
