@@ -1,0 +1,26 @@
+name: Run Node.js Script
+on: [push]
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.x"
+      - name: Install dependencies
+        run: npm install
+      - name: Get Commit Message
+        id: commit_message
+        run: echo "::set-output name=message::$(cat $GITHUB_EVENT_PATH | jq -r '.commits[0].message')"
+      - name: Run Script
+        run: node action/index.js
+        env:
+          TARGET_LANGUAGE: DE
+          SOURCE_LANGUAGE: EN
+          COMMIT_MESSAGE: ${{ steps.commit_message.outputs.message }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{github.event.commits[0].author.username}}
+          EMAIL: ${{github.event.commits[0].author.email}}
