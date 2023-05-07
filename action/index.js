@@ -48,6 +48,7 @@ async function githubProcess(text) {
             if (err) throw err;
         });
 
+        await exec.exec(`cat ${filePath}`);
         await exec.exec(`git add ${filePath}`);
 
         const commitMessage = 'Add new content to documentation';
