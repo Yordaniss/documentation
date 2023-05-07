@@ -83,7 +83,8 @@ function buildHeader() {
         title: Document${getNow(true)}
         date: ${getNow()}
         categories: jekyll update
-    ---`;
+    ---
+    `;
 
     str = str.split('\n')
         .map(line => line.trim())
