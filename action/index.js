@@ -40,7 +40,6 @@ async function githubProcess(text) {
 
         fs.appendFile(filePath, buildText(username, text), function (err) {
             if (err) throw err;
-            console.log('Saved!');
         });
 
         await exec.exec(`git add ${filePath}`);
