@@ -64,5 +64,5 @@ function getNow() {
 }
 
 function buildText(username, text) {
-    return username + ':' + text.push('  ');
+    return username + ':' + text.split("").push('  ');
 }
