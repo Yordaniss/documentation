@@ -39,7 +39,7 @@ async function githubProcess(text) {
         }
 
         if (!fs.existsSync(filePath)) {
-            fs.appendFile(filePath, buildHead(), function (err) {
+            fs.appendFile(filePath, buildHeader(), function (err) {
                 if (err) throw err;
             });
         }
@@ -74,16 +74,20 @@ function getNow(withoutFormatting = false) {
 }
 
 function buildText(username, text) {
-    return username + ':' + `${text}  `;
+    return `${username}: ${text}  `;
 }
 
-function buildHead() {
-    return `
-    ---
-    layout: post
-    title: Document${getNow(true)}
-    date: ${getNow()}
-    categories: jekyll update
-    ---
-    `;
+function buildHeader() {
+    let str = `---
+        layout: post
+        title: Document${getNow(true)}
+        date: ${getNow()}
+        categories: jekyll update
+    ---`;
+
+    str = str.split('\n')
+        .map(line => line.trim())
+        .join('\n');
+
+    return str;
 }
