@@ -24,7 +24,7 @@ async function githubProcess(text) {
         const email = process.env.EMAIL;
         const branchName = 'gh-pages';
         const dir = './_posts';
-        const filePath = dir + '/' + getNow() + '-Document' + '.mb'
+        const filePath = dir + '/' + getNow() + '-Document' + '.md'
 
         await exec.exec(`git fetch`);
 
@@ -38,7 +38,7 @@ async function githubProcess(text) {
             fs.mkdirSync(dir);
         }
 
-        fs.appendFile(filePath, text + '  ', function (err) {
+        fs.appendFile(filePath, buildText(username, text), function (err) {
             if (err) throw err;
             console.log('Saved!');
         });
@@ -61,4 +61,8 @@ function getNow() {
     var yyyy = today.getFullYear();
 
     return yyyy + '-' + mm + '-' + dd;
+}
+
+function buildText(username, text) {
+    return username + ':' + text.push('  ');
 }
