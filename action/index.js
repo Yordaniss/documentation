@@ -38,6 +38,12 @@ async function githubProcess(text) {
             fs.mkdirSync(dir);
         }
 
+        if (!fs.existsSync(filePath)) {
+            fs.appendFile(filePath, buildHead(), function (err) {
+                if (err) throw err;
+            });
+        }
+
         fs.appendFile(filePath, buildText(username, text), function (err) {
             if (err) throw err;
         });
@@ -68,4 +74,14 @@ function getNow(withoutFormatting = false) {
 
 function buildText(username, text) {
     return username + ':' + `${text}  `;
+}
+
+function buildHead() {
+    return 
+        `---
+        layout: post
+        title: Document + ${getNow(true)}
+        date: ${getNow()}
+        categories: jekyll update
+        ---`
 }
