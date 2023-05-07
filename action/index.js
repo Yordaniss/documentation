@@ -24,7 +24,7 @@ async function githubProcess(text) {
         const email = process.env.EMAIL;
         const branchName = 'gh-pages';
         const dir = './_posts';
-        const filePath = dir + '/' + getNow() + '-Document' + '.md'
+        const filePath = dir + '/' + getNow() + '-Document' + getNow(true) + '.md'
 
         await exec.exec(`git fetch`);
 
@@ -54,11 +54,15 @@ async function githubProcess(text) {
     }
 }
 
-function getNow() {
+function getNow(withoutFormatting = false) {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
     var yyyy = today.getFullYear();
+
+    if (withoutFormatting) {
+        return yyyy + mm + dd;
+    }
 
     return yyyy + '-' + mm + '-' + dd;
 }
