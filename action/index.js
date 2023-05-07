@@ -67,5 +67,5 @@ function getNow(withoutFormatting = false) {
 }
 
 function buildText(username, text) {
-    return username + ':' + text.split("").push('  ');
+    return username + ':' + `${text}  `;
 }
