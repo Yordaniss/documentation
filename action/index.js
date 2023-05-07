@@ -39,7 +39,7 @@ async function githubProcess(text) {
         }
 
         if (!fs.existsSync(filePath)) {
-            fs.appendFile(filePath, 'TEST', function (err) {
+            fs.appendFile(filePath, buildHead(), function (err) {
                 if (err) throw err;
             });
         }
@@ -77,11 +77,12 @@ function buildText(username, text) {
 }
 
 function buildHead() {
-    return 
-        `---
-        layout: post
-        title: Document + ${getNow(true)}
-        date: ${getNow()}
-        categories: jekyll update
-        ---`;
+    return `
+    ---
+    layout: post
+    title: Document${getNow(true)}
+    date: ${getNow()}
+    categories: jekyll update
+    ---
+    `;
 }
