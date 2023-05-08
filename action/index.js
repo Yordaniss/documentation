@@ -87,7 +87,7 @@ function buildText(username, text, timestamp) {
 
 function buildHeader() {
     let str = `---
-        layout: post
+        layout: default
         title: Document${getNow(true)}
         date: ${getNow()}
         categories: jekyll update
