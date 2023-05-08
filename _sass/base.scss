@@ -1,9 +1,14 @@
-$backgroundColor: #cfb9b9;
-$bodyColor: #000000;
-$bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$bodyFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 body {
-  background: $backgroundColor;
-  color: $bodyColor;
+  background-color: #c2ebb4;
+  background-image: linear-gradient(90deg, #c2ebb4 50%, #a2c0e6 100%);
   font-family: $bodyFont;
+}
+
+.main_page {
+  position: absolute;
+  left: 40%;
+  right: 0;
+  margin: 0 auto;
 }
