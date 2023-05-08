@@ -44,7 +44,7 @@ async function githubProcess(text) {
             });
         }
 
-        fs.appendFile(filePath, buildText(username, text), function (err) {
+        fs.appendFile(filePath, buildText(username, text, getNow(false, true)), function (err) {
             if (err) throw err;
         });
 
@@ -60,7 +60,7 @@ async function githubProcess(text) {
     }
 }
 
-function getNow(withoutFormatting = false) {
+function getNow(withoutFormatting = false, likeTimestamp = false) {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -70,11 +70,19 @@ function getNow(withoutFormatting = false) {
         return yyyy + mm + dd;
     }
 
+    if (likeTimestamp) {
+        let hours = today.getHours();
+        let minutes = today.getMinutes();
+        let seconds = today.getSeconds();
+
+        return `${yyyy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
+    }
+
     return yyyy + '-' + mm + '-' + dd;
 }
 
-function buildText(username, text) {
-    return `${username}: ${text}  `;
+function buildText(username, text, timestamp) {
+    return `- ${timestamp} | ${username}: ${text}  `;
 }
 
 function buildHeader() {
