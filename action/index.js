@@ -60,7 +60,7 @@ async function githubProcess(text) {
     }
 }
 
-function getNow(withoutFormatting = false, likeTimestamp = false) {
+function getNow(withoutFormatting = false, returnTimestamp = false) {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -70,7 +70,7 @@ function getNow(withoutFormatting = false, likeTimestamp = false) {
         return yyyy + mm + dd;
     }
 
-    if (likeTimestamp) {
+    if (returnTimestamp) {
         let hours = today.getHours();
         let minutes = today.getMinutes();
         let seconds = today.getSeconds();
