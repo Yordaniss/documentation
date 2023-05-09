@@ -18,7 +18,7 @@ jobs:
       - name: Run Script
         run: node action/index.js
         env:
-          TARGET_LANGUAGE: UA
+          TARGET_LANGUAGE: FR
           SOURCE_LANGUAGE: EN
           COMMIT_MESSAGE: ${{ steps.commit_message.outputs.message }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
