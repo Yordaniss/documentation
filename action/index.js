@@ -82,7 +82,7 @@ function getNow(withoutFormatting = false, likeTimestamp = false) {
 }
 
 function buildText(username, text, timestamp) {
-    return `- ${timestamp} | ${username}: ${text}  `;
+    return `- ${timestamp} | ${username}: ${text} \n`;
 }
 
 function buildHeader() {
