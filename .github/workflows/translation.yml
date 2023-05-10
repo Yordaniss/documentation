@@ -1,4 +1,4 @@
-name: Run Node.js Script
+name: Translate commit message
 on: [push]
 jobs:
   run-script:
@@ -18,7 +18,7 @@ jobs:
       - name: Run Script
         run: node action/index.js
         env:
-          TARGET_LANGUAGE: FR
+          TARGET_LANGUAGE: ES
           SOURCE_LANGUAGE: EN
           COMMIT_MESSAGE: ${{ steps.commit_message.outputs.message }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
