@@ -1,17 +1,12 @@
-# Github translated commits into gh-pages for documentation/changelog 📖
-
-The project was created to generate translation for commit messages for supporting open source mainteners and repository owners 
-to make it easier write commit messages in other languages.
+# Github translated commits into gh-pages for documentation/changelog The project was created to generate translation for commit messages for supporting open source maintainers and repository owners to make it easier to write commit messages in other languages.
 
 ### Key Technologies
+GitHub Pages
+GitHub Action
+MyMemory API (for translation)
+Jekyll
 
-- Github Pages
-- Github Action
-- MyMemory API (for translation)
-- Jekyll
-
-There are two option for languages (source and target language), other information will be get atomatically from workflow. 
-The .yml file look like: 
+There are two option for languages (source and target language), other information will be got automatically from workflow. The .yml file look like:  
 
 ``` yml
 name: Translate commit message
@@ -50,7 +45,7 @@ jobs:
 
 ### Workflow
 
-After commit was pushed, github action will trigger the translation process and create .md(filename -> today) in your "gh-pages" branch.
+After commit was pushed, GitHub Action will trigger the translation process and create .md (filename -> today) in your "gh-pages" branch.
 Translated text will be pushed into this file and other workflow process will trigger Jekyll creating process, that used this Markdown file
 to create template as output.
 
