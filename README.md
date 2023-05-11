@@ -1,4 +1,6 @@
-# Github translated commits into gh-pages for documentation/changelog The project was created to generate translation for commit messages for supporting open source maintainers and repository owners to make it easier to write commit messages in other languages.
+# Github translated commits into gh-pages for documentation/changelog 📖
+
+The project was created to generate translation for commit messages for supporting open source maintainers and repository owners to make it easier to write commit messages in other languages.
 
 ### Key Technologies
 GitHub Pages
