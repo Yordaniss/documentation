@@ -3,10 +3,10 @@
 The project was created to generate translation for commit messages for supporting open source maintainers and repository owners to make it easier to write commit messages in other languages.
 
 ### Key Technologies
-GitHub Pages
-GitHub Action
-MyMemory API (for translation)
-Jekyll
+- GitHub Pages
+- GitHub Action
+- MyMemory API (for translation)
+- Jekyll
 
 There are two option for languages (source and target language), other information will be got automatically from workflow. The .yml file look like:  
 
